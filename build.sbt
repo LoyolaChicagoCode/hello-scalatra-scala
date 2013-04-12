@@ -18,7 +18,7 @@ resolvers += Classpaths.typesafeReleases
 
 libraryDependencies ++= {
   object V {
-    val scalaz = "7.0.0-M9"
+    val scalaz   = "7.0.0-M9"
     val scalatra = "2.2.1"
   }
   Seq(
@@ -35,6 +35,8 @@ libraryDependencies ++= {
 }
 
 apps in container.Configuration <<= (deployment in Compile) map (d => Seq("/api" -> d))
+
+// TODO figure out this logging dependency problem
 
 ivyXML := <dependencies><exclude module="slf4j-log4j12"/></dependencies>
 
